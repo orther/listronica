@@ -4,6 +4,11 @@
             [compojure.core :refer [defroutes GET]]
             [compojure.route :refer [not-found]]))
 
+(defn about [req]
+  {:status 200
+   :body "My name is Brandon Orther. I am following along with LispCast's Intro to Web Development with Clojure."
+    :headers {}})
+
 (defn goodbye [req]
   {:status 200
    :body "Goodbye, cruel world!"
@@ -16,6 +21,7 @@
 
 (defroutes app
   (GET "/" [] greet)
+  (GET "/about" [] about)
   (GET "/goodbye" [] goodbye)
   (not-found "Page not found."))
 
